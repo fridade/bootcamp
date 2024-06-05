@@ -1,32 +1,22 @@
-pipeline
-   agent any
-   
-   stages { 
-      stage ('create directories') {
+pipeline {
+    agent any
 
-        steps {
-             sh '''
-             mkdir freezo
+    stages { 
+        stage('Create Directories') {
+            steps {
+                sh '''
+                    mkdir -p freezo
+                '''
+            } 
+        }
 
-              '''
-             } 
-
-
-
-      }
-
-    stage ('create file') {
-
-        steps {
-             sh '''
-              cd freezo
-              touch fridade
-
-              '''
-             } 
-
-
-
-      }
-
-   }
+        stage('Create File') {
+            steps {
+                sh '''
+                    cd freezo
+                    touch fridade
+                '''
+            } 
+        }
+    }
+}
